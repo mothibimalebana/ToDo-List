@@ -1,0 +1,16 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "A simple  to-do list application built as part of The Odin Project curriculum. This project covers essential front-end skills like HTML, CSS, and JavaScript, with features such as adding, deleting, and editing tasks. It also implements basic DOM manipulation and local storage for saving tasks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
