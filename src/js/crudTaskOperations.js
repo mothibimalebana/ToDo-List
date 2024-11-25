@@ -1,7 +1,7 @@
 import { formatDistanceToNow } from "date-fns";
-import { taskManager } from ".";
+import { listManager, taskManager } from "./index";
 
-export const crudOperations = (function (){     //where crud operations will be defined
+export const crudTaskOperations = (function (){     //where crud operations will be defined
 //create a task object
     const create = function (title, description, dueDate, priority, difficulty) {   //create tasks
         const priorityLevels =  {
@@ -22,12 +22,19 @@ export const crudOperations = (function (){     //where crud operations will be 
             difficulty: difficultyLevels[difficulty],
         }
     }
-    const read = function(){
-        console.log(taskManager.toDoLists["Default ToDo List"].map((task) => console.log(`\nTitle: ${task.title} \nDifficulty: ${task.difficulty} \nPriotiy: ${task.priority} \nDate: ${task.dueDate}`)))
+
+    const readTask = function(taskList){
+        console.log(listManager.toDoLists[taskList]);
     }
-    const update = function(){
+
+    
+    const updateTitle = function(task, taskList, title){
+        listManager.toDoLists[taskList][task].title = `${title}`;
 
     }
+    const delTask = function(task, taskList){
+        listManager.toDoLists[taskList].splice(task, 1);
+    }
     
-    return{ create, read }
+    return{ create, readTask, delTask, updateTitle }
 })();
