@@ -1,5 +1,6 @@
 const taskManager = (function (){
     //where user tasks will be stored
+    const todoList = []
 
 })();
 const crudOperations = (function (){
@@ -13,5 +14,7 @@ const crudOperations = (function (){
         }
     }
    const task1 =  createTask("climb a tree", "check maths building for good trees to climb", "today", 1);
-   console.log(task1);
+})();
+const todoOperations = (function (){
+    //exta functionalities will be added here
 })();
