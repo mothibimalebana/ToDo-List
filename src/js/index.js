@@ -4,16 +4,17 @@ import {todoOperations} from "./toDoOperations";
 export const taskManager = (function (){
     //where user tasks will be stored
     const toDoLists = {
-        ["Default ToDo List:"]: [],
+        ["Default ToDo List"]: [],
     }
-    const createTask = function(task, taskList){
-        crudOperations.createTask(task);
-        todoOperations.appendTaskToList(task, "Default Todo List:");
+    const createTask = function(title, description, dueDate, priority, difficulty, taskList){
+        const task = crudOperations.create(title, description, dueDate, priority);
+        todoOperations.appendTaskToList(task, taskList);
     }
-    return { toDoLists, createTask}
+    const getTasks = function(){
+        crudOperations.read();
+    }
+    return { toDoLists, createTask, getTasks}
 })();
 
-const workout = todoOperations.createList("work out");
-const task1 = crudOperations.createTask("Thabisile's Day : )", "make it special for her", new Date("2025-01-01T00:00:00"), 3);
-todoOperations.appendTaskToList(task1, "Default todo list: ")
-console.log(taskManager.toDoLists);
+taskManager.createTask("Thabisile's Birthday", "Make it special", new Date("2025-01-01T00:00:00"), 3, 3, "Default ToDo List");
+taskManager.getTasks();
