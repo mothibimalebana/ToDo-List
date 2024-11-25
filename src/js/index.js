@@ -4,10 +4,13 @@ import {todoOperations} from "./toDoOperations";
 export const taskManager = (function (){
     //where user tasks will be stored
     const toDoLists = {
-        ["Default ToDo List: "]: [],
+        ["Default ToDo List:"]: [],
     }
-    
-    return {toDoLists}
+    const createTask = function(task, taskList){
+        crudOperations.createTask(task);
+        todoOperations.appendTaskToList(task, "Default Todo List:");
+    }
+    return { toDoLists, createTask}
 })();
 
 const workout = todoOperations.createList("work out");
