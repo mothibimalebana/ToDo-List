@@ -1,11 +1,10 @@
 const taskManager = (function (){
     //where user tasks will be stored
-    const todoList = []
 
 })();
 const crudOperations = (function (){
     //where crud operations will be defined
-    const createTask = function (title, description, dueDate, priority) {
+    const createTask = function (title, description, dueDate, priority) {   //create tasks
         return{
             title,
             description,
@@ -17,4 +16,10 @@ const crudOperations = (function (){
 })();
 const todoOperations = (function (){
     //exta functionalities will be added here
+    const createList = function (title){
+        title = [];
+        return title
+    }
+    const todo = createList("todo")
+    console.log(todo);
 })();
