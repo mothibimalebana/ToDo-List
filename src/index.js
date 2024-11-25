@@ -1,6 +1,7 @@
 const taskManager = (function (){
     //where user tasks will be stored
-
+    const lists = [];
+    return {lists}
 })();
 const crudOperations = (function (){
     //where crud operations will be defined
@@ -16,10 +17,11 @@ const crudOperations = (function (){
 })();
 const todoOperations = (function (){
     //exta functionalities will be added here
-    const createList = function (title){
+    const createList = function (title){    //creates a new 'list' for projects
         title = [];
         return title
     }
-    const todo = createList("todo")
-    console.log(todo);
+    const transferList = function (userList){
+        taskManager.lists.push(userList);
+    }
 })();
