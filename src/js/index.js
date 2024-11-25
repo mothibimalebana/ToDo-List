@@ -7,7 +7,7 @@ export const taskManager = (function (){
         ["Default ToDo List"]: [],
     }
     const createTask = function(title, description, dueDate, priority, difficulty, taskList){
-        const task = crudOperations.create(title, description, dueDate, priority);
+        const task = crudOperations.create(title, description, dueDate, difficulty, priority);
         todoOperations.appendTaskToList(task, taskList);
     }
     const getTasks = function(){
