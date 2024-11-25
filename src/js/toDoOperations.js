@@ -12,9 +12,9 @@ export const todoOperations = (function (){
         console.log(`object created: ${userList}`);
     }
     const appendTaskToList = function(task, listName){
-        taskManager.listName.push();
+        taskManager.toDoLists[listName].push(task);
     }
 
-    return {createList, transferList};
+    return {createList, transferList, appendTaskToList};
 })();
 
