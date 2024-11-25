@@ -12,5 +12,6 @@ const crudOperations = (function (){
             priority,
         }
     }
-    createTask("climb a tree", "check maths building for good trees to climb", )
+   const task1 =  createTask("climb a tree", "check maths building for good trees to climb", "today", 1);
+   console.log(task1);
 })();
