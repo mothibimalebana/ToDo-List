@@ -1,4 +1,5 @@
-import { listManager } from ".";
+import _ from "lodash";
+import { listManager } from "./index";
 
 export const crudListOperations = (function (){
     //create array of lists
@@ -6,15 +7,16 @@ export const crudListOperations = (function (){
         listManager.toDoLists[title] = [];
     }
     const readList = function(taskList){
-        console.log(listManager.toDoLists[taskList]);
+        console.log(listManager.toDoLists);
     }
-    const updateTitle = function( taskList, title){
-        listManager.toDoLists[taskList] = `${title}`;
-
+    const updateTitle = function( listName, title){
+        createList(title);
+        listManager.toDoLists[title] = listManager.toDoLists[listName];
+        delList(listName);
     }
     const delList = function(taskList){
         delete listManager.toDoLists[taskList];
     }
 
     return{ createList, readList, updateTitle, delList};
-}) 
+})();
