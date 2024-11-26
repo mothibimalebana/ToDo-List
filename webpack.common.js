@@ -11,6 +11,11 @@ module.exports = {
       filename: '[name].html',
       template: './src/index.html'
     }),
+    new HtmlWebpackPlugin({
+      title: 'how it works',
+      filename:  '[name].html',
+      template: './src/hiwp.html'
+    })
   ],
   output: {
     filename: '[name].bundle.js',
