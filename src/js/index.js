@@ -1,6 +1,7 @@
 import { crudTaskOperations } from "./crudTaskOperations";
 import { crudListOperations } from "./crudListOperations";
 import {todoOperations} from "./toDoOperations";
+import "../css/styles.css";
 
 const taskManager = (function (){
     //where user tasks will be stored
