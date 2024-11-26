@@ -1,19 +1,16 @@
 @font-face {
     font-family: 'poppinsregular';
-    src: url('poppins-regular-webfont.woff2') format('woff2'),
-         url('poppins-regular-webfont.woff') format('woff');
+    src: url('../fonts/DM_Sans/poppins-regular-webfont.woff2') format('woff2'),
+         url('../fonts/DM_Sans/poppins-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
-
-
-
 @font-face {
-    font-family: 'DM_Sans';
-    src: url('dmsans-variablefont_opszwght-webfont.woff2') format('woff2'),
-         url('dmsans-variablefont_opszwght-webfont.woff') format('woff');
+    font-family: 'DM Sans';
+    src: url('../fonts/DM_Sans/dmsans-variablefont_opszwght-webfont.woff2') format('woff2'),
+         url('../fonts/DM_Sans/dmsans-variablefont_opszwght-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -46,6 +43,7 @@
   body {
     font-size: 16px;
     height: 100%;
+    font-family: 'DM Sans';
     background: #FFF;
     font-family: 'Inter';
     -webkit-font-smoothing: antialiased;
@@ -67,6 +65,9 @@
   input, button, textarea, select {
     font: inherit;
   }
+  button:hover{
+    cursor: pointer;
+  }
   /*
     7. Avoid text overflows
   */
@@ -85,8 +86,39 @@
   .nav {
     display: flex;
     justify-content: space-between;
+    font-family: 'DM Sans';
     align-items: center;
+    
     background: #D5CCFF;
-    height: 5rem;
-    flex-shrink: 0;
-}
+    height: 3rem;
+
+    /* TYPOGRAPHY */
+    color: #FFF;
+    font-family: "DM Sans";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0 3rem;
+    }
+    .navRight {
+        display: flex;
+        gap: 2rem;
+        font-size: 1rem;
+    }
+    .navRight > button {
+        background: #D5CCFF;
+        color:#FFF;
+        border: none;
+    }
+
+    .container{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 2fr 1fr;
+        min-height: 100%;
+        background-color: #2B1887;
+        padding: 0 3rem;
+
+    }
+    
