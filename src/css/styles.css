@@ -247,10 +247,19 @@
       line-height: normal;
     }
     .taskForm{
+      background: #5D5FEF;
+      height: 100%;
+      width: 100%;
       display: none;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
       position: fixed;
-      bottom: 0;
-      right: 15px;
-      border: 3px solid #f1f1f1;
+      bottom: auto;
       z-index: 9;
+    }
+    .formHeader{
+      display: flex;
+      justify-content: space-between;
     }
