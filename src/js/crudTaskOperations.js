@@ -3,7 +3,7 @@ import { listManager, taskManager } from "./index";
 
 export const crudTaskOperations = (function (){     //where crud operations will be defined
 //create a task object
-    const create = function (title, description, dueDate, priority, difficulty) {   //create tasks
+    const create = function (title, dueDate, priority, difficulty) {   //create tasks
         const priorityLevels =  {
             1: "Low",
             2: "Medium",
@@ -16,7 +16,6 @@ export const crudTaskOperations = (function (){     //where crud operations will
         };
         return{
             title,
-            description,
             dueDate: formatDistanceToNow(dueDate, {addSuffix: true}),   //how long from today?
             priority: priorityLevels[priority], 
             difficulty: difficultyLevels[difficulty],

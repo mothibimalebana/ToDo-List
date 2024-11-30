@@ -17,10 +17,15 @@ export const form = (function (){
           if(priorityNodeList[i].checked){
             return priorityNodeList[i].value
           }
-          else{
-            
+        }
+      }
+      function checkedEffort(){
+        const effortNodeList = document.getElementsByName("effort");
+        for(let i = 0; i < effortNodeList.length; i++){
+          if(effortNodeList[i].checked){
+            return effortNodeList[i].value
           }
         }
       }
-      return {openForm, closeForm, preventSubmit}
+      return {openForm, closeForm, checkedEffort, checkedPriority, preventSubmit}
 })();

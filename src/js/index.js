@@ -6,8 +6,8 @@ import "../css/styles.css";
 
 const taskManager = (function (){
     //where user tasks will be stored
-    const createTask = function(title, description, dueDate, priority, difficulty, taskList){
-        const task = crudTaskOperations.create(title, description, dueDate, difficulty, priority);
+    const createTask = function(title, dueDate, priority, difficulty, taskList){
+        const task = crudTaskOperations.create(title, dueDate, difficulty, priority);
         todoOperations.appendTaskToList(task, taskList);
     }
     const getTasks = function(taskList){
@@ -28,18 +28,28 @@ const listManager = (function(){
         ["Default"]: [],
     }
     const createList = function(title){
-        crudListOperations.createList(title)
+       return crudListOperations.createList(title)
     }
     const getLists = function(){
-        crudListOperations.readList();
+        return crudListOperations.readList();
     }
     const updateTitle = function(listName ,title){
-        crudListOperations.updateTitle(listName,title);
+        return crudListOperations.updateTitle(listName,title);
     }
     const removeLists = function(taskList){
-        crudListOperations.delList( taskList );
+       return crudListOperations.delList( taskList );
     }
     return{ toDoLists,  getLists, createList, removeLists, updateTitle }
+})();
+
+const screenController = (function (){
+    let currList = "Default";
+    const getCurrList = ()=>currList;
+    const listTitle = document.querySelector(".taskTitle");
+
+    listTitle.textContent = `${getCurrList()}`;
+    currList = "Default";
+    console.log(listTitle)
 })();
 
 const taskFormManager = (function (){
@@ -56,6 +66,11 @@ const taskFormManager = (function (){
 
     const submitButton = document.getElementById("submit");
     submitButton.addEventListener("click", ()=>{
+        form.preventSubmit();
+        const priority = form.checkedPriority();
+        const effort = form.checkedEffort();
+
+        const newTask = taskManager.createTask(task.value, date.value, priority, effort,)
         // let task = taskManager.createTask(task)
     })
 })();

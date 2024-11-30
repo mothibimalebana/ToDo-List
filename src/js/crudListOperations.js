@@ -6,8 +6,8 @@ export const crudListOperations = (function (){
     const createList = function (title){    //creates a new 'list' for projects
         listManager.toDoLists[title] = [];
     }
-    const readList = function(taskList){
-        console.log(listManager.toDoLists);
+    const readList = function(){
+        return listManager.toDoLists;
     }
     const updateTitle = function( listName, title){
         createList(title);
