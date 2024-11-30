@@ -60,53 +60,53 @@
             </div> -->
         </div>
         <!-- form: to add task -->
-         <div id="myForm" class="taskForm">
-            <form action="">
-                <div class="formHeader">
-                    <h1>add a task</h1>
-                    <h1>close</h1>
-                </div>
-
-                <div class="formContent">
-                    <div class="formTask">
-                        <label for="task"><b>Task:</b></label>
-                        <input type="text" name="task" required>
-                    </div>
-                    <div class="formDate">
-                        <label for="date"><b>Due Date:</b></label>
-                        <input type="datetime" name="date" required>
-                    </div>
-                    <div class="formPriority">
-                        <fieldset>
-                            <legend for="priority">Priority:</legend>
-                    
-                            <label for="Low">Low</label>
-                            <input type="radio" name="priority" value="Low">
-                    
-                            <label for="Medium">Medium</label>
-                            <input type="radio" name="priority" value="Medium">
-                    
-                            <label for="High">High</label>
-                            <input type="radio" name="priority" value="High">
-                        </fieldset>
-                    </div>
-                    <div class="formEffort">
-                        <fieldset>
-                            <legend for="effort">Effort:</legend>
-                    
-                            <label for="Low">Low</label>
-                            <input type="radio" name="effort" value="Low">
-                    
-                            <label for="Medium">Medium</label>
-                            <input type="radio" name="effort" value="Medium">
-                    
-                            <label for="High">High</label>
-                            <input type="radio" name="effort" value="High">
-                        </fieldset>
-                    </div>
-                </div>
-            </form>
-         </div>
+         <dialog id="dialogForm">
+             <form method="modal">
+                 <div class="formHeader">
+                     <h1>add a task</h1>
+                     <h1><button id="closeTask">close</button></h1>
+                 </div>
+                 <div class="formContent">
+                     <div class="formTask">
+                         <label for="task"><b>Task:</b></label>
+                         <input type="text" name="task" required>
+                     </div>
+                     <div class="formDate">
+                         <label for="date"><b>Due Date:</b></label>
+                         <input type="date" name="date" required>
+                     </div>
+                     <div class="formPriority">
+                         <fieldset>
+                             <legend for="priority">Priority:</legend>
+             
+                             <label for="Low">Low</label>
+                             <input type="radio" name="priority" value="Low">
+             
+                             <label for="Medium">Medium</label>
+                             <input type="radio" name="priority" value="Medium">
+             
+                             <label for="High">High</label>
+                             <input type="radio" name="priority" value="High">
+                         </fieldset>
+                     </div>
+                     <div class="formEffort">
+                         <fieldset>
+                             <legend for="effort">Effort:</legend>
+             
+                             <label for="Low">Low</label>
+                             <input type="radio" name="effort" value="Low">
+             
+                             <label for="Medium">Medium</label>
+                             <input type="radio" name="effort" value="Medium">
+             
+                             <label for="High">High</label>
+                             <input type="radio" name="effort" value="High">
+                         </fieldset>
+                         <button id="submit" type="submit">Submit</button>
+                     </div>
+                 </div>
+             </form>
+         </dialog>
     </div>
 </body>
 </html>

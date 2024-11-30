@@ -1,11 +1,14 @@
 export const form = (function (){
     function openForm() {
-        document.getElementById("myForm").style.display = "block";
+        document.getElementById("dialogForm").showModal()
       }
       
       function closeForm() {
-        document.getElementById("myForm").style.display = "none";
+        document.getElementById("dialogForm").close()
       }
     
+      function preventSubmit(){
+        document.getElementById("submit")
+      }
       return {openForm, closeForm}
 })();

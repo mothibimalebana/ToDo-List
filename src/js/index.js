@@ -44,7 +44,9 @@ const listManager = (function(){
 
 const taskFormManager = (function (){
     const addTask = document.getElementById("addTask");
-    addTask.addEventListener("click", ()=> form.openForm())
+    addTask.addEventListener("click", ()=> form.openForm());
 
+    const closeTask = document.getElementById("closeTask");
+    closeTask.addEventListener("click", ()=>form.closeForm());
 })();
 export {taskManager, listManager}
