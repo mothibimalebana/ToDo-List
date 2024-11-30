@@ -43,16 +43,20 @@ const listManager = (function(){
 })();
 
 const taskFormManager = (function (){
+    const task = document.getElementById("task");
+    const date = document.getElementById("date");
+    const priority = document.getElementById("priority");
+    const effort = document.getElementById("effort");
+
     const addTask = document.getElementById("addTask");
     addTask.addEventListener("click", ()=> form.openForm());
 
     const closeTask = document.getElementById("closeTask");
     closeTask.addEventListener("click", ()=>form.closeForm());
 
-    function submitButton(){
-        document.getElementById("click", ()=>{
-        //   let task = 
-        })
-      }
+    const submitButton = document.getElementById("submit");
+    submitButton.addEventListener("click", ()=>{
+        // let task = taskManager.createTask(task)
+    })
 })();
 export {taskManager, listManager}
