@@ -48,5 +48,11 @@ const taskFormManager = (function (){
 
     const closeTask = document.getElementById("closeTask");
     closeTask.addEventListener("click", ()=>form.closeForm());
+
+    function submitButton(){
+        document.getElementById("click", ()=>{
+        //   let task = 
+        })
+      }
 })();
 export {taskManager, listManager}

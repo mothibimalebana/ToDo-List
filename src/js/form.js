@@ -8,7 +8,7 @@ export const form = (function (){
       }
     
       function preventSubmit(){
-        document.getElementById("submit")
+        document.getElementById("form").addEventListener("submit", (e)=>e.preventDefault(), false)
       }
-      return {openForm, closeForm}
+      return {openForm, closeForm, preventSubmit}
 })();
