@@ -1,6 +1,7 @@
 import { crudTaskOperations } from "./crudTaskOperations";
 import { crudListOperations } from "./crudListOperations";
 import {todoOperations} from "./toDoOperations";
+import { form } from "./form";
 import "../css/styles.css";
 
 const taskManager = (function (){
@@ -39,5 +40,11 @@ const listManager = (function(){
         crudListOperations.delList( taskList );
     }
     return{ toDoLists,  getLists, createList, removeLists, updateTitle }
+})();
+
+const taskFormManager = (function (){
+    const addTask = document.getElementById("addTask");
+    addTask.addEventListener("click", ()=> form.openForm())
+
 })();
 export {taskManager, listManager}

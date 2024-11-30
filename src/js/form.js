@@ -1,4 +1,4 @@
-const form = (function (){
+export const form = (function (){
     function openForm() {
         document.getElementById("myForm").style.display = "block";
       }
