@@ -52,6 +52,10 @@ const screenController = (function (){
     console.log(listTitle)
 })();
 
+const listFormManager = (function(){
+    const addList = document.getElementById("addList")
+})();
+
 const taskFormManager = (function (){
     const task = document.getElementById("task");
     const date = document.getElementById("date");

@@ -53,12 +53,20 @@
         <div class="lists">
             <div class="listHeader">
                 <div class="title">List</div>
-                <div class="addList"><button id="addList">add list</button></div>
+                <div id="addList" class="addList"><button id="addList">add list</button></div>
             </div>
             <!-- <div class="listItems">
                 <div class="listHeader">Default</div>
             </div> -->
         </div>
+        <dialog>
+            <form id="listForm" method="modal" action="#">
+                <div class="formHeader">
+                    <h1>add a list</h1>
+                    <h1><button id="closeList"></button></h1>
+                </div>
+            </form>
+        </dialog>
         <!-- form: to add task -->
          <dialog id="dialogForm">
              <form id="form" method="modal" action="#">

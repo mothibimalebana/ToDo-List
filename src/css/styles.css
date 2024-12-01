@@ -220,9 +220,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--Light-Mode-Wireframe-Black, #000);
+      color: var(--Light-Mode-Wireframe-Black, #2B1887);
       font-family: "DM Sans";
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
