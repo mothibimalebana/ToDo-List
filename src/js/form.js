@@ -1,4 +1,4 @@
-export const form = (function (){
+const form = (function (){
     function openForm() {
         document.getElementById("dialogForm").showModal()
       }
@@ -28,4 +28,13 @@ export const form = (function (){
         }
       }
       return {openForm, closeForm, checkedEffort, checkedPriority, preventSubmit}
+})();
+
+const formList =  (function(){
+  function openListForm(){
+    document.getElementById("listForm").showModal();
+  }
+  function closeListForm(){
+    document.getElementById("listForm").close();
+  }
 })();

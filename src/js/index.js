@@ -53,7 +53,8 @@ const screenController = (function (){
 })();
 
 const listFormManager = (function(){
-    const addList = document.getElementById("addList")
+    const addList = document.getElementById("addList");
+    addList.addEventListener()
 })();
 
 const taskFormManager = (function (){
