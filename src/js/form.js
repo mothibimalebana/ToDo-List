@@ -29,7 +29,7 @@ const form = (function (){
       }
       return {openForm, closeForm, checkedEffort, checkedPriority, preventSubmit}
 })();
-
+//controls open and closing of the form that will add tasks to list
 const formList =  (function(){
   function openListForm(){
     document.getElementById("listForm").showModal();
@@ -37,4 +37,9 @@ const formList =  (function(){
   function closeListForm(){
     document.getElementById("listForm").close();
   }
+  function preventSubmitList(){
+    document.getElementById("formTask").addEventListener("submit", (e) => e.preventDefault(), false);
+  }
+
+  return{openListForm, closeListForm, preventSubmitList}
 })();
