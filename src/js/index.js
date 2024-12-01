@@ -54,10 +54,19 @@ const screenController = (function (){
 })();
 
 const listFormManager = (function(){
-    const openListForm = document.getElementById("addList");
-    openListForm.addEventListener("click", ()=>formList.openListForm())
+    const list = document.getElementById("list");
 
-    const closeListForm = document.getElementById("closeList")
+    const openListForm = document.getElementById("addList");
+    openListForm.addEventListener("click", ()=>formList.openListForm());
+
+    const closeListForm = document.getElementById("closeList");
+    closeListForm.addEventListener("click", () => formList.closeListForm());
+
+    const submitListForm = document.getElementById("submitListForm");
+    submitListForm.addEventListener("click",() =>{
+        formList.preventSubmitList();
+        console.log(list.value);
+    })
 })();
 
 const taskFormManager = (function (){
