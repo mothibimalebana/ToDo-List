@@ -2,6 +2,7 @@ import { crudTaskOperations } from "./crudTaskOperations";
 import { crudListOperations } from "./crudListOperations";
 import {todoOperations} from "./toDoOperations";
 import { form } from "./form";
+import { formList } from "./form";
 import "../css/styles.css";
 
 const taskManager = (function (){
@@ -54,7 +55,7 @@ const screenController = (function (){
 
 const listFormManager = (function(){
     const addList = document.getElementById("addList");
-    addList.addEventListener()
+    addList.addEventListener("click", ()=>formList.openListForm())
 })();
 
 const taskFormManager = (function (){

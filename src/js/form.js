@@ -1,4 +1,4 @@
-const form = (function (){
+export const form = (function (){
     function openForm() {
         document.getElementById("dialogForm").showModal()
       }
@@ -30,7 +30,7 @@ const form = (function (){
       return {openForm, closeForm, checkedEffort, checkedPriority, preventSubmit}
 })();
 //controls open and closing of the form that will add tasks to list
-const formList =  (function(){
+export const formList =  (function(){
   function openListForm(){
     document.getElementById("listForm").showModal();
   }
