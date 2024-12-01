@@ -35,7 +35,7 @@ export const formList =  (function(){
     document.getElementById("listForm").showModal();
   }
   function closeListForm(){
-    document.getElementById("listForm").close();
+    document.getElementById("closeList").close();
   }
   function preventSubmitList(){
     document.getElementById("formTask").addEventListener("submit", (e) => e.preventDefault(), false);

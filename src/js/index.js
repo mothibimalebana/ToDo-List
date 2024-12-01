@@ -54,8 +54,10 @@ const screenController = (function (){
 })();
 
 const listFormManager = (function(){
-    const addList = document.getElementById("addList");
-    addList.addEventListener("click", ()=>formList.openListForm())
+    const openListForm = document.getElementById("addList");
+    openListForm.addEventListener("click", ()=>formList.openListForm())
+
+    const closeListForm = document.getElementById("closeList")
 })();
 
 const taskFormManager = (function (){
