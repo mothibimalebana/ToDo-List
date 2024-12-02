@@ -20,6 +20,7 @@ const taskManager = (function (){
     const removeTask = function(task, taskList){
         crudTaskOperations.delTask(task, taskList)
     }
+
     return { createTask, getTasks, removeTask, updateTitle}
 })();
 

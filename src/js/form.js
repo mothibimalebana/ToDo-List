@@ -1,10 +1,14 @@
 export const form = (function (){
     function openForm() {
-        document.getElementById("dialogForm").showModal()
+        document.getElementById("addList").addEventListener("click", () => {
+          document.getElementById("dialogForm").showModal();
+        })
       }
       
       function closeForm() {
-        document.getElementById("dialogForm").close()
+        document.getElementById("closeList").addEventListener("click", () => {
+          document.getElementById("dialogForm").close();
+        })
       }
     
       function preventSubmit(){
@@ -35,7 +39,7 @@ export const formList =  (function(){
     document.getElementById("listForm").showModal();
   }
   function closeListForm(){
-    document.getElementById("closeList").close();
+    document.getElementById("listForm").close();
   }
   function preventSubmitList(){
     document.getElementById("formTask").addEventListener("submit", (e) => e.preventDefault(), false);
