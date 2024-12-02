@@ -51,11 +51,9 @@ const screenController = (function (){
     listTitle.textContent = `${getCurrList()}`;
     }
 
-    const displayList = () => {
-    for(let list in listManager.getLists()){
-        screenController.createListItem(list)
+    const addListToForm = () => {
     }
-}
+
     const createListItem = (listName) => {
         const list = document.querySelector(".lists");
 
@@ -69,6 +67,13 @@ const screenController = (function (){
         listItem.appendChild(listHeader);
         list.appendChild(listItem)
     }
+    const displayList = () => {
+        for(let list in listManager.getLists()){
+            createListItem(list)
+        }
+    }    
+
+    displayList();
     return{ createListItem, displayList }
 })();
 
@@ -85,7 +90,7 @@ const listFormManager = (function(){
     submitListForm.addEventListener("click",() =>{
         formList.preventSubmitList();
         const listItem = listManager.createList(list.value);
-        
+        screenController.displayList();
         
     })
 })();
