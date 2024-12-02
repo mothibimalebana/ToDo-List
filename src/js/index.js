@@ -70,9 +70,9 @@ const screenController = (function (){
         list.lastElementChild.innerHTML = "";
         list.lastElementChild.remove();
     }
+
     const displayList = () => {
         let lengthOfList = Object.keys(listManager.getLists()).length - 1;
-        console.log(Object.keys(listManager.getLists()))
         for(let i = lengthOfList; i <= lengthOfList; i++){
             createListItem(Object.keys(listManager.getLists())[i]);
         }
@@ -83,6 +83,7 @@ const screenController = (function (){
 
 const listFormManager = (function(){
     const list = document.getElementById("list");
+    const listForm = document.getElementById("listForm")
 
     const openListForm = document.getElementById("addList");
     openListForm.addEventListener("click", ()=>formList.openListForm());
@@ -95,6 +96,11 @@ const listFormManager = (function(){
         formList.preventSubmitList();
         const listItem = listManager.createList(list.value);
         screenController.displayList();        
+    })
+    listForm.addEventListener("submit", () =>{
+        taskFormManager.listOptions();
+        console.log("submitted");        
+        document.getElementById("listForm").close();
     })
 })();
 
@@ -110,14 +116,33 @@ const taskFormManager = (function (){
     const closeTask = document.getElementById("closeTask");
     closeTask.addEventListener("click", ()=>form.closeForm());
 
+    function listOptions(){
+        const listFieldSet = document.getElementById("listFieldSet");
+
+        let lengthOfList = Object.keys(listManager.getLists()).length-1;
+        for(let i = lengthOfList; i <= lengthOfList; i++){
+          const listLabel = document.createElement("label");
+          listLabel.setAttribute("for", Object.keys(listManager.getLists())[i]);
+          listLabel.textContent = Object.keys(listManager.getLists())[i];
+  
+          const input = document.createElement("input");
+          input.setAttribute("name",  Object.keys(listManager.getLists())[i]);
+          input.setAttribute("type", "radio");
+          input.setAttribute("value",  Object.keys(listManager.getLists())[i]);
+          listFieldSet.appendChild(listLabel);
+          listFieldSet.appendChild(input);
+        }  
+      }
+    listOptions();
     const submitButton = document.getElementById("submit");
     submitButton.addEventListener("click", ()=>{
         form.preventSubmit();
         const priority = form.checkedPriority();
         const effort = form.checkedEffort();
-
         const newTask = taskManager.createTask(task.value, date.value, priority, effort,)
         // let task = taskManager.createTask(task)
     })
+
+    return {listOptions}
 })();
 export {taskManager, listManager}

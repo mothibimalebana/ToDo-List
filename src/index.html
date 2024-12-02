@@ -60,7 +60,7 @@
             </div> -->
         </div>
         <dialog id="listForm">
-            <form id="formTask" method="modal" action="#">
+            <form id="listForm" method="modal" action="#">
                 <div class="formHeader">
                     <h1>add a list</h1>
                     <h1><button id="closeList">close</button></h1>
@@ -117,9 +117,14 @@
                              <label for="High">High</label>
                              <input type="radio" name="effort" value="High">
                          </fieldset>
-                         <button id="submit" type="submit">Submit</button>
                      </div>
+                     <div class="listOptions">
+                        <fieldset id="listFieldSet">
+                            <legend for="effort">Select A List:</legend>
+                        </fieldset>
+                    </div>
                  </div>
+                 <button id="submit" type="submit">Submit</button>
              </form>
          </dialog>
     </div>

@@ -1,12 +1,14 @@
+import { listManager } from "./index";
+
 export const form = (function (){
     function openForm() {
-        document.getElementById("addList").addEventListener("click", () => {
+        document.getElementById("addTask").addEventListener("click", () => {
           document.getElementById("dialogForm").showModal();
         })
       }
       
       function closeForm() {
-        document.getElementById("closeList").addEventListener("click", () => {
+        document.getElementById("closeTask").addEventListener("click", () => {
           document.getElementById("dialogForm").close();
         })
       }
@@ -15,6 +17,7 @@ export const form = (function (){
         document.getElementById("form").addEventListener("submit", (e)=>e.preventDefault(), false)
       }
     
+
       function checkedPriority(){
         const priorityNodeList = document.getElementsByName("priority");
         for(let i = 0; i < priorityNodeList.length; i++){
@@ -36,13 +39,17 @@ export const form = (function (){
 //controls open and closing of the form that will add tasks to list
 export const formList =  (function(){
   function openListForm(){
-    document.getElementById("listForm").showModal();
+    document.getElementById("addList").addEventListener("click", () => {
+      document.getElementById("listForm").showModal();
+    });
   }
   function closeListForm(){
-    document.getElementById("listForm").close();
+    document.getElementById("closeList").addEventListener("click", () => {
+      document.getElementById("listForm").close();
+    });
   }
   function preventSubmitList(){
-    document.getElementById("formTask").addEventListener("submit", (e) => e.preventDefault(), false);
+    document.getElementById("listForm").addEventListener("submit", (e) => e.preventDefault(), false);
   }
 
   return{openListForm, closeListForm, preventSubmitList}
