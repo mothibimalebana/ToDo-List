@@ -45,12 +45,31 @@ const listManager = (function(){
 
 const screenController = (function (){
     let currList = "Default";
-    const getCurrList = ()=>currList;
+    const getCurrList = () => currList;
     const listTitle = document.querySelector(".taskTitle");
-
+    const updateListTitle = () =>{
     listTitle.textContent = `${getCurrList()}`;
-    currList = "Default";
-    console.log(listTitle)
+    }
+
+    const displayList = () => {
+    for(let list in listManager.getLists()){
+        screenController.createListItem(list)
+    }
+}
+    const createListItem = (listName) => {
+        const list = document.querySelector(".lists");
+
+        const listItem = document.createElement("div");
+        listItem.classList.add("listItems");
+    
+        const listHeader = document.createElement("div");
+        listHeader.classList.add("listHeader");
+        listHeader.textContent = `${listName}`
+    
+        listItem.appendChild(listHeader);
+        list.appendChild(listItem)
+    }
+    return{ createListItem, displayList }
 })();
 
 const listFormManager = (function(){
@@ -65,7 +84,9 @@ const listFormManager = (function(){
     const submitListForm = document.getElementById("submitListForm");
     submitListForm.addEventListener("click",() =>{
         formList.preventSubmitList();
-        console.log(list.value);
+        const listItem = listManager.createList(list.value);
+        
+        
     })
 })();
 
