@@ -51,9 +51,6 @@ const screenController = (function (){
     listTitle.textContent = `${getCurrList()}`;
     }
 
-    const addListToForm = () => {
-    }
-
     const createListItem = (listName) => {
         const list = document.querySelector(".lists");
 
@@ -67,14 +64,20 @@ const screenController = (function (){
         listItem.appendChild(listHeader);
         list.appendChild(listItem)
     }
+    const clearList = () => {
+        const list = document.querySelector(".lists");
+        list.lastElementChild.innerHTML = "";
+        list.lastElementChild.remove();
+    }
     const displayList = () => {
-        for(let list in listManager.getLists()){
-            createListItem(list)
+        let lengthOfList = Object.keys(listManager.getLists()).length - 1;
+        console.log(Object.keys(listManager.getLists()))
+        for(let i = lengthOfList; i <= lengthOfList; i++){
+            createListItem(Object.keys(listManager.getLists())[i]);
         }
     }    
-
     displayList();
-    return{ createListItem, displayList }
+    return{ createListItem, displayList, clearList }
 })();
 
 const listFormManager = (function(){
@@ -90,8 +93,7 @@ const listFormManager = (function(){
     submitListForm.addEventListener("click",() =>{
         formList.preventSubmitList();
         const listItem = listManager.createList(list.value);
-        screenController.displayList();
-        
+        screenController.displayList();        
     })
 })();
 

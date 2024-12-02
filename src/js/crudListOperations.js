@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { listManager } from "./index";
 
 export const crudListOperations = (function (){
