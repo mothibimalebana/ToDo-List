@@ -67,8 +67,12 @@ const screenController = (function (){
     }
     const createTaskItem = (task,date,priority, effort, taskList) => {
         const taskListDiv = document.querySelector(".taskList");
+    
         const taskDiv = document.createElement("div");
         taskDiv.classList.add = "task";
+    
+        const taskHeaderDiv = document.createElement("div");
+        taskHeaderDiv.classList.add = "taskHeader";
     }
     const clearList = () => {
         const list = document.querySelector(".lists");
