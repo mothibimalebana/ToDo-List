@@ -9,6 +9,7 @@ const taskManager = (function (){
     const createTask = function(title, dueDate, priority, difficulty, taskList){
         const task = crudTaskOperations.create(title, dueDate, difficulty, priority);
         todoOperations.appendTaskToList(task, taskList);
+        return task
     }
     const getTasks = function(taskList){
         crudTaskOperations.readTask(taskList);
@@ -63,6 +64,9 @@ const screenController = (function (){
     
         listItem.appendChild(listHeader);
         list.appendChild(listItem)
+    }
+    const createTaskItem = (task,date,priority, effort, taskList) => {
+        const taskListDiv = document.querySelector(".taskList")
     }
     const clearList = () => {
         const list = document.querySelector(".lists");
@@ -139,8 +143,8 @@ const taskFormManager = (function (){
         const priorityLevel = Number(form.checkedPriority());
         const effortLevel = Number(form.checkedEffort());
         const listItem = form.checkedListItem();
-        const newTask = taskManager.createTask(task.value, date.value, priorityLevel, effortLevel, listItem);
-        console.log(task.value + date.value + priorityLevel + effortLevel + listItem);
+        const newTask = taskManager.createTask(String(task.value), date.value, priorityLevel, effortLevel, String(listItem));
+        taskManager.getTasks(String(listItem))
     })
 
     return {listOptions}
