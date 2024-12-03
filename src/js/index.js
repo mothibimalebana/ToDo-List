@@ -4,7 +4,6 @@ import {todoOperations} from "./toDoOperations";
 import { form } from "./form";
 import { formList } from "./form";
 import "../css/styles.css";
-
 const taskManager = (function (){
     //where user tasks will be stored
     const createTask = function(title, dueDate, priority, difficulty, taskList){
@@ -126,7 +125,7 @@ const taskFormManager = (function (){
           listLabel.textContent = Object.keys(listManager.getLists())[i];
   
           const input = document.createElement("input");
-          input.setAttribute("name",  Object.keys(listManager.getLists())[i]);
+          input.setAttribute("name",  "listItem");
           input.setAttribute("type", "radio");
           input.setAttribute("value",  Object.keys(listManager.getLists())[i]);
           listFieldSet.appendChild(listLabel);
@@ -137,10 +136,11 @@ const taskFormManager = (function (){
     const submitButton = document.getElementById("submit");
     submitButton.addEventListener("click", ()=>{
         form.preventSubmit();
-        const priority = form.checkedPriority();
-        const effort = form.checkedEffort();
-        const newTask = taskManager.createTask(task.value, date.value, priority, effort,)
-        // let task = taskManager.createTask(task)
+        const priorityLevel = Number(form.checkedPriority());
+        const effortLevel = Number(form.checkedEffort());
+        const listItem = form.checkedListItem();
+        const newTask = taskManager.createTask(task.value, date.value, priorityLevel, effortLevel, listItem);
+        console.log(task.value + date.value + priorityLevel + effortLevel + listItem);
     })
 
     return {listOptions}

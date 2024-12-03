@@ -34,7 +34,15 @@ export const form = (function (){
           }
         }
       }
-      return {openForm, closeForm, checkedEffort, checkedPriority, preventSubmit}
+      function checkedListItem(){
+        const listItem = document.getElementsByName("listItem");
+        for(let i = 0; i < listItem.length; i++){
+          if(listItem[i].checked){
+            return listItem[i].value
+          }
+        }
+      }
+      return {openForm, closeForm, checkedEffort, checkedListItem, checkedPriority, preventSubmit}
 })();
 //controls open and closing of the form that will add tasks to list
 export const formList =  (function(){
