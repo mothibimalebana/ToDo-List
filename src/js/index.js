@@ -66,7 +66,9 @@ const screenController = (function (){
         list.appendChild(listItem)
     }
     const createTaskItem = (task,date,priority, effort, taskList) => {
-        const taskListDiv = document.querySelector(".taskList")
+        const taskListDiv = document.querySelector(".taskList");
+        const taskDiv = document.createElement("div");
+        taskDiv.classList.add = "task";
     }
     const clearList = () => {
         const list = document.querySelector(".lists");
