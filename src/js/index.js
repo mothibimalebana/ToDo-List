@@ -69,10 +69,68 @@ const screenController = (function (){
         const taskListDiv = document.querySelector(".taskList");
     
         const taskDiv = document.createElement("div");
-        taskDiv.classList.add = "task";
+        taskDiv.classList.add("task");
     
         const taskHeaderDiv = document.createElement("div");
-        taskHeaderDiv.classList.add = "taskHeader";
+        taskHeaderDiv.classList.add("taskHeader");
+        taskHeaderDiv.textContent = `${task}`;
+    
+        const taskItemDiv = document.createElement("div");
+        taskItemDiv.classList.add("taskItem");
+    
+        const subItems = document.createElement("div");
+        subItems.classList.add("subItems");
+    
+        const subItemsLeftDiv = document.createElement("div");
+        subItemsLeftDiv.classList.add("subItemsLeft");
+    
+        const effortDiv = document.createElement("div");
+        effortDiv.classList.add("effort");
+    
+        for(let i = 0; i < effort; i++){
+            const effortSVG = document.createElementNS("http://www.w3.org/2000/svg","svg");
+            const effortPATH = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            effortSVG.setAttribute("fill","none");
+            effortSVG.setAttribute("viewBox", "0 0 24 25");
+            effortSVG.setAttribute("width", "24");
+            effortSVG.setAttribute("height", "25");
+        
+            switch(priority){
+                case 1:
+                    effortPATH.setAttribute("d", "M0 6.5H20C22.2091 6.5 24 8.29086 24 10.5V15.0714C24 16.965 22.465 18.5 20.5714 18.5H12C5.37258 18.5 0 13.1274 0 6.5Z");
+                    effortPATH.setAttribute("fill", "#2D41A7");
+                    break;
+                case 2:
+                    effortPATH.setAttribute("d", "M0 6.5H20C22.2091 6.5 24 8.29086 24 10.5V15.0714C24 16.965 22.465 18.5 20.5714 18.5H12C5.37258 18.5 0 13.1274 0 6.5Z");
+                    effortPATH.setAttribute("fill", "#ECB800");
+                case 3:
+                    effortPATH.setAttribute("d", "M0 6.5H20C22.2091 6.5 24 8.29086 24 10.5V15.0714C24 16.965 22.465 18.5 20.5714 18.5H12C5.37258 18.5 0 13.1274 0 6.5Z");
+                    effortPATH.setAttribute("fill", "#2D41A7");
+                default:
+                    console.log("Oops, something seems to have went wrong");
+            }
+        
+            effortSVG.appendChild(effortPATH);
+            effortDiv.appendChild(effortSVG);
+        }
+    
+        subItemsLeftDiv.appendChild(effortDiv);
+        subItems.appendChild(subItemsLeftDiv);
+    
+        const subItemsRightDiv = document.createElement("div");
+        subItemsRightDiv.classList.add("subItemsRight");
+        const dateDiv = document.createElement("div");
+        dateDiv.classList.add("date");
+        dateDiv.textContent = `${date}`;
+    
+        subItemsRightDiv.appendChild(dateDiv);
+        subItems.appendChild(subItemsRightDiv);
+        taskItemDiv.appendChild(subItems);
+
+        taskDiv.appendChild(taskHeaderDiv);
+        taskDiv.appendChild(taskItemDiv);
+        taskListDiv.appendChild(taskDiv);
+        
     }
     const clearList = () => {
         const list = document.querySelector(".lists");
@@ -87,7 +145,7 @@ const screenController = (function (){
         }
     }    
     displayList();
-    return{ createListItem, displayList, clearList }
+    return{ createListItem, createTaskItem, displayList, clearList }
 })();
 
 const listFormManager = (function(){
@@ -150,7 +208,9 @@ const taskFormManager = (function (){
         const effortLevel = Number(form.checkedEffort());
         const listItem = form.checkedListItem();
         const newTask = taskManager.createTask(String(task.value), date.value, priorityLevel, effortLevel, String(listItem));
-        taskManager.getTasks(String(listItem))
+        screenController.createTaskItem(String(task.value), newTask.dueDate, priorityLevel, effortLevel);
+
+        
     })
 
     return {listOptions}
